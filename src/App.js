@@ -31,6 +31,48 @@ class Picture extends Component {
 }
 
 
+class Dropdown extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      initialClick: false,
+      rating: 3
+    }
+  }
+
+  render() {
+    return (
+      <div onClick= {function() {
+        var selection = (document.getElementById('selection')).options[document.getElementById('selection').selectedIndex]);
+        this.setState({initialClick: !this.state.initialClick });
+
+      }}>
+
+      {this.state.initialClick ?
+
+        <td>
+        <select id="selection">
+          <option id="five">5</option>
+          <option id="three">3</option>
+          <option id="one">1</option>
+        </select>
+        </td>
+
+        :
+
+        <td>
+        <select id="selection">
+          <option id="five">5</option>
+          <option id="three">3</option>
+          <option id="one">1</option>
+        </select>
+        </td>
+
+      }
+      </div>
+    )
+  }
+}
 
 
 class App extends Component {
@@ -48,6 +90,7 @@ class App extends Component {
         <tbody>
           {this.props.array.map(source => <Picture source= {source}/>)}
         </tbody>
+        <Dropdown />
       </table>
 
       )

@@ -15,3 +15,8 @@ ReactDOM.render(
   <App array= {imageArray}/>,
   document.getElementById('root')
 );
+
+ReactDOM.render(
+  <Dropdown />,
+  document.getElementById('dropdown')
+);
